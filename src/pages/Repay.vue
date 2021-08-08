@@ -5,7 +5,7 @@
       color="accent"
       text-color="white"
       no-caps
-      :label="'Pay ' + amount"
+      :label="'Pay ₹ ' + amount"
       @click="payLoan"
       :disable="processing"
     />
