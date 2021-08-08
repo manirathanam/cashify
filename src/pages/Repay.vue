@@ -12,6 +12,12 @@
   </div>
 </template>
 <script>
+/**
+ * TODO
+ * 1. disabling pay button when payment is in progress.
+ * 2. Show Remaining loan amount
+ * 3. Close Loan when repayment complete.
+ */
 import { defineComponent, ref } from "vue";
 import { updatePremium, getLoanData } from "../db.js";
 import { useQuasar } from "quasar";
@@ -28,6 +34,7 @@ export default defineComponent({
     };
     const payLoan = function () {
       processing = true;
+      // auto-paif
       updatePremium()
         .then(() => {
           showNotif("Paid");
@@ -46,7 +53,7 @@ export default defineComponent({
     return { amount: "0" };
   },
   mounted: function () {
-    const { loanStatus, loadAmount, tenure, premiumPaid, interest } =
+    const { loadAmount, tenure, interest } =
       getLoanData();
     let P = loadAmount.replace(/,/g, "");
     let R = parseInt(interest.replace("%", "")) / 12 / 100;

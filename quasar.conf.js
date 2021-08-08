@@ -139,9 +139,9 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
-        description: `A Quasar Framework app`,
+        name: `Cashify`,
+        short_name: `Cashify App`,
+        description: `A Cashify web app`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

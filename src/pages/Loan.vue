@@ -18,7 +18,7 @@ import { getLoanData } from "../db.js";
 export default defineComponent({
   name: "Loan",
   setup() {
-    const { loanStatus, loadAmount, tenure, premiumPaid } = getLoanData();
+    const { loanStatus } = getLoanData();
     let loanApproved = ref(loanStatus === "approved");
 
     return { loanApproved };

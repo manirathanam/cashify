@@ -1,8 +1,8 @@
 {
   "name": "cashify",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "A Cashify app",
+  "productName": "Cashify",
   "author": "manirathanam",
   "private": true,
   "scripts": {

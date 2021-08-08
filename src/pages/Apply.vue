@@ -95,7 +95,11 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, toRefs } from "vue";
+/**
+ * TODO
+ * 1. I accept filed validation
+ */
+import { defineComponent} from "vue";
 import { useQuasar } from "quasar";
 import { getLoanData, submitLoanData } from "../db.js";
 export default defineComponent({
@@ -129,14 +133,14 @@ export default defineComponent({
     onSubmit(e) {
       this.submitting = true;
       this.showNotif("Application Submitted");
+      // auto-approved
       this.submitLoan(this.$data)
         .then(() => {
-          this.$emit("nn_change", true);
           this.showNotif("Approved");
+          //  navigate to repay section
           this.$router.push("/loan/repay");
         })
         .catch((e) => {
-          this.$emit("change", false);
           this.showNotif("Not Approved");
           console.error(e);
         });
@@ -150,6 +154,7 @@ export default defineComponent({
   },
   mounted: function () {
     const { loanStatus } = getLoanData();
+    // validate loan status and hide fields
     this.loanApproved = loanStatus === "approved";
   },
 });
